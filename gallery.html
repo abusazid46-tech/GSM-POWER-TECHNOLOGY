@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab & Gallery - GSM POWER TECHNOLOGY</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gallery page specific styles */
+        .page-header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .gallery-section {
+            padding: 5rem 0;
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lab-features {
+            background: #f8fafc;
+            padding: 5rem 0;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .equipment-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.1);
+        }
+
+        .equipment-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .equipment-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        .video-section {
+            padding: 5rem 0;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(37, 99, 235, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .video-thumbnail:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: #2563eb;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">GSM POWER TECHNOLOGY</a>
+            <div class="mobile-menu-btn">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="gallery.html" class="active">Lab & Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="floating-whatsapp" target="_blank">📱</a>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Lab & Facilities</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">State-of-the-art equipment and training environment</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="lab">Lab Equipment</button>
+                <button class="filter-btn" data-filter="training">Training Sessions</button>
+                <button class="filter-btn" data-filter="students">Student Work</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Lab Equipment Images -->
+                <div class="gallery-item" data-category="lab">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1170&q=80" alt="Soldering Station">
+                    <div class="gallery-overlay">
+                        <h4>Professional Soldering Station</h4>
+                        <p>Temperature controlled for precise work</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="lab">
+                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1170&q=80" alt="Microscope">
+                    <div class="gallery-overlay">
+                        <h4>Digital Microscope</h4>
+                        <p>For chip-level inspection and soldering</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="lab">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1170&q=80" alt="Diagnostic Tools">
+                    <div class="gallery-overlay">
+                        <h4>Diagnostic Equipment</h4>
+                        <p>Multimeters, oscilloscopes, and more</p>
+                    </div>
+                </div>
+
+                <!-- Training Sessions -->
+                <div class="gallery-item" data-category="training">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=2070&q=80" alt="Training Session">
+                    <div class="gallery-overlay">
+                        <h4>Hands-on Training</h4>
+                        <p>Students practicing on real devices</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="training">
+                    <img src="https://images.unsplash.com/photo-1571066811602-716921d0a2a2?auto=format&fit=crop&w=1170&q=80" alt="Practical Class">
+                    <div class="gallery-overlay">
+                        <h4>Chip Level Practice</h4>
+                        <p>Advanced soldering techniques</p>
+                    </div>
+                </div>
+
+                <!-- Student Work -->
+                <div class="gallery-item" data-category="students">
+                    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1170&q=80" alt="Student Work">
+                    <div class="gallery-overlay">
+                        <h4>Student Projects</h4>
+                        <p>Successfully repaired motherboards</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="students">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1170&q=80" alt="Student Achievement">
+                    <div class="gallery-overlay">
+                        <h4>Certificate Distribution</h4>
+                        <p>Celebrating student success</p>
+                    </div>
+                </div>
+
+                <!-- Events -->
+                <div class="gallery-item" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=1169&q=80" alt="Workshop">
+                    <div class="gallery-overlay">
+                        <h4>Workshop Event</h4>
+                        <p>Industry experts session</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Features -->
+    <section class="lab-features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Equipment</h2>
+                <p class="section-subtitle">Professional tools you'll master</p>
+            </div>
+
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-icon">🔧</div>
+                    <h4>Soldering Stations</h4>
+                    <p>JBC & Hakko professional soldering stations with precise temperature control</p>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-icon">🔬</div>
+                    <h4>Digital Microscopes</h4>
+                    <p>HD microscopes with 1080p output for chip-level work</p>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-icon">📱</div>
+                    <h4>Diagnostic Software</h4>
+                    <p>Latest unlocking and repair software for all brands</p>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-icon">⚡</div>
+                    <h4>Power Supplies</h4>
+                    <p>Variable DC power supplies for testing</p>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-icon">📡</div>
+                    <h4>Oscilloscopes</h4>
+                    <p>Digital storage oscilloscopes for signal analysis</p>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-icon">🛠️</div>
+                    <h4>Repair Tools</h4>
+                    <p>Complete set of precision repair tools</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Training Videos</h2>
+                <p class="section-subtitle">See our training in action</p>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=2070&q=80" alt="Chip Level Training">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4>Chip Level Training Demo</h4>
+                        <p>Watch how we teach IC replacement</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1571066811602-716921d0a2a2?auto=format&fit=crop&w=1170&q=80" alt="Software Training">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4>Software Unlocking</h4>
+                        <p>FRP and dead boot repair tutorial</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1170&q=80" alt="Student Success">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4>Student Success Story</h4>
+                        <p>From student to shop owner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img src="" alt="Lightbox Image">
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GSM POWER TECHNOLOGY</h4>
+                    <p>Professional mobile repairing and chip-level training institute.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>📍 [Your Address]</li>
+                        <li>📞 +91 XXXXXXXXXX</li>
+                        <li>📧 info@gsmpower.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 GSM POWER TECHNOLOGY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Gallery filtering
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        const closeBtn = document.querySelector('.close-lightbox');
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
