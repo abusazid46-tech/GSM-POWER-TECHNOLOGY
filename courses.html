@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Courses - GSM POWER TECHNOLOGY</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Courses page specific styles */
+        .page-header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            padding: 5rem 0;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            top: 0;
+        }
+
+        .course-card:hover {
+            top: -10px;
+            box-shadow: 0 30px 45px -12px rgba(37, 99, 235, 0.25);
+        }
+
+        .course-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.1);
+        }
+
+        .course-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #2563eb;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .course-content {
+            padding: 2rem;
+        }
+
+        .course-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .course-duration {
+            display: inline-block;
+            background: #dbeafe;
+            color: #2563eb;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .course-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .course-features li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            color: #475569;
+        }
+
+        .course-features li::before {
+            content: "✓";
+            color: #2563eb;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .course-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .course-price small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .comparison-table {
+            background: #f8fafc;
+            padding: 5rem 0;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: #0f172a;
+            color: white;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .faq-section {
+            padding: 5rem 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .faq-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2.2rem; }
+            .courses-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">GSM POWER TECHNOLOGY</a>
+            <div class="mobile-menu-btn">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="gallery.html">Lab & Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="floating-whatsapp" target="_blank">📱</a>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Professional Courses</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Choose your path to become a certified mobile repair expert</p>
+        </div>
+    </section>
+
+    <!-- Courses Grid -->
+    <section class="container">
+        <div class="courses-grid">
+            <!-- Basic Course -->
+            <div class="course-card" id="basic">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1571066811602-716921d0a2a2?auto=format&fit=crop&w=1170&q=80" alt="Basic mobile repair course">
+                    <span class="course-tag">Most Popular</span>
+                </div>
+                <div class="course-content">
+                    <h3>🔧 Basic Mobile Repairing</h3>
+                    <span class="course-duration">⏱️ 45 Days</span>
+                    <ul class="course-features">
+                        <li>Mobile parts identification & disassembly</li>
+                        <li>Fault finding techniques & troubleshooting</li>
+                        <li>Charging & power issues repair</li>
+                        <li>Mic/Speaker/Display replacement</li>
+                        <li>Software reset & flashing</li>
+                        <li>Battery & connector repair</li>
+                        <li>Basic soldering introduction</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="course-price">₹15,000 <small>one-time</small></div>
+                        <a href="contact.html" class="btn btn-whatsapp" style="padding: 0.8rem 1.5rem;">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Course -->
+            <div class="course-card" id="advanced">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1170&q=80" alt="Advanced chip level repair">
+                    <span class="course-tag">Professional</span>
+                </div>
+                <div class="course-content">
+                    <h3>🧠 Advance Chip Level</h3>
+                    <span class="course-duration">⏱️ 90 Days</span>
+                    <ul class="course-features">
+                        <li>Motherboard structure & circuit tracing</li>
+                        <li>Short detection & voltage testing</li>
+                        <li>IC replacement (BGA soldering)</li>
+                        <li>Microscope soldering practice</li>
+                        <li>Water damage repair techniques</li>
+                        <li>CPU & RAM reballing</li>
+                        <li>Advanced diagnostics tools</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="course-price">₹25,000 <small>one-time</small></div>
+                        <a href="contact.html" class="btn btn-whatsapp" style="padding: 0.8rem 1.5rem;">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Software Course -->
+            <div class="course-card" id="software">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1170&q=80" alt="Software and unlocking course">
+                </div>
+                <div class="course-content">
+                    <h3>💻 Software & Unlocking</h3>
+                    <span class="course-duration">⏱️ 30 Days</span>
+                    <ul class="course-features">
+                        <li>FRP unlock (all brands & models)</li>
+                        <li>Pattern/Password removal</li>
+                        <li>Dead boot repair techniques</li>
+                        <li>IMEI repair & baseband fix</li>
+                        <li>iPhone software recovery</li>
+                        <li>Network unlocking</li>
+                        <li>Custom ROM installation</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="course-price">₹12,000 <small>one-time</small></div>
+                        <a href="contact.html" class="btn btn-whatsapp" style="padding: 0.8rem 1.5rem;">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- iPhone Specialization -->
+            <div class="course-card" id="iphone">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=1169&q=80" alt="iPhone repair course">
+                </div>
+                <div class="course-content">
+                    <h3>📱 iPhone Repairing</h3>
+                    <span class="course-duration">⏱️ 60 Days</span>
+                    <ul class="course-features">
+                        <li>iPhone motherboard repair</li>
+                        <li>Face ID & Touch ID issues</li>
+                        <li>Battery & charging problems</li>
+                        <li>Water damage repair</li>
+                        <li>iOS software recovery</li>
+                        <li>iCloud bypass techniques</li>
+                        <li>Micro-soldering on iPhone boards</li>
+                    </ul>
+                    <div class="course-footer">
+                        <div class="course-price">₹20,000 <small>one-time</small></div>
+                        <a href="contact.html" class="btn btn-whatsapp" style="padding: 0.8rem 1.5rem;">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Comparison -->
+    <section class="comparison-table">
+        <div class="container">
+            <div class="section-title">
+                <h2>Course Comparison</h2>
+                <p class="section-subtitle">Find the right course for your career goals</p>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Basic</th>
+                        <th>Advanced</th>
+                        <th>Software</th>
+                        <th>iPhone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hardware Repair</td>
+                        <td>✅ Basic</td>
+                        <td>✅ Advanced</td>
+                        <td>❌</td>
+                        <td>✅ Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>Chip Level</td>
+                        <td>❌</td>
+                        <td>✅ Expert</td>
+                        <td>❌</td>
+                        <td>✅ Expert</td>
+                    </tr>
+                    <tr>
+                        <td>Software & Unlocking</td>
+                        <td>✅ Basic</td>
+                        <td>✅ Advanced</td>
+                        <td>✅ Expert</td>
+                        <td>✅ Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>Micro-soldering</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>Business Support</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about our courses</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>❓ Do I need any prior experience?</h4>
+                    <p>No, absolutely not! Our basic course starts from zero and takes you to a professional level. We teach everything from basics to advanced.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>❓ What tools will I get to practice?</h4>
+                    <p>You'll have access to professional soldering stations, microscopes, diagnostic software, and multiple practice devices during the course.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>❓ Is there any placement assistance?</h4>
+                    <p>Yes! We provide 100% job placement assistance. We have tie-ups with service centers and also help you start your own business.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>❓ Can I take multiple courses?</h4>
+                    <p>Yes, you can combine courses. Many students take Basic + Advanced for complete knowledge. Ask us about combo discounts!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GSM POWER TECHNOLOGY</h4>
+                    <p>Professional mobile repairing and chip-level training institute.</p>
+                    <div class="social-links">
+                        <a href="#"><span>📘</span></a>
+                        <a href="#"><span>📷</span></a>
+                        <a href="#"><span>🐦</span></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>📍 [Your Address]</li>
+                        <li>📞 +91 XXXXXXXXXX</li>
+                        <li>📧 info@gsmpower.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 GSM POWER TECHNOLOGY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
