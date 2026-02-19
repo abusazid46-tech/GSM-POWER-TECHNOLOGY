@@ -26,6 +26,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function (registration) {
+        console.log('Service Worker registered:', registration.scope);
+      })
+      .catch(function (error) {
+        console.log('Service Worker registration failed:', error);
+      });
+  });
+}
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
