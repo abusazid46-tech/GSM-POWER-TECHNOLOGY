@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - GSM POWER TECHNOLOGY</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Contact page specific styles */
+        .page-header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .contact-section {
+            padding: 5rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: #f8fafc;
+            padding: 3rem;
+            border-radius: 24px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.1);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .info-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .info-content p, .info-content a {
+            color: #475569;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .info-content a:hover {
+            color: #2563eb;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .map-section {
+            padding: 5rem 0;
+            background: #f8fafc;
+        }
+
+        .map-container {
+            height: 450px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .business-hours {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            border-radius: 24px;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .social-connect {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background: #f8fafc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background: #2563eb;
+            color: white;
+        }
+
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-info, .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">GSM POWER TECHNOLOGY</a>
+            <div class="mobile-menu-btn">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="gallery.html">Lab & Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="floating-whatsapp" target="_blank">📱</a>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">We're here to help you start your career in mobile repairing</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2 style="margin-bottom: 2rem;">Contact Information</h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h4>Visit Us</h4>
+                            <p>GSM POWER TECHNOLOGY<br>
+                            [Your Street Address]<br>
+                            [City, State, PIN Code]<br>
+                            India</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h4>Call Us</h4>
+                            <p><a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a><br>
+                            <a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a> (Alternate)</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">💬</div>
+                        <div class="info-content">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/91XXXXXXXXXX">+91 XXXXXXXXXX</a><br>
+                            Quick response within 5 minutes</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@gsmpower.com">info@gsmpower.com</a><br>
+                            <a href="mailto:admissions@gsmpower.com">admissions@gsmpower.com</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="business-hours">
+                        <h3 style="margin-bottom: 1rem;">Business Hours</h3>
+                        <div class="hours-grid">
+                            <div class="hours-item">
+                                <span>Monday - Friday</span>
+                                <span>9:00 AM - 8:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Saturday</span>
+                                <span>9:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Sunday</span>
+                                <span>10:00 AM - 2:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Holidays</span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Connect -->
+                    <div class="social-connect">
+                        <h3>Connect With Us</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">📘</a>
+                            <a href="#" class="social-icon">📷</a>
+                            <a href="#" class="social-icon">🐦</a>
+                            <a href="#" class="social-icon">📺</a>
+                            <a href="#" class="social-icon">💬</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2 style="margin-bottom: 2rem;">Send us a Message</h2>
+                    
+                    <form id="contactForm" onsubmit="return submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="course">Interested Course</label>
+                            <select class="form-control" id="course">
+                                <option value="">Select a course</option>
+                                <option value="basic">Basic Mobile Repairing</option>
+                                <option value="advanced">Advanced Chip Level</option>
+                                <option value="software">Software & Unlocking</option>
+                                <option value="iphone">iPhone Repairing</option>
+                                <option value="combo">Combo Course</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-whatsapp" style="width: 100%;">Send Message</button>
+                        </div>
+
+                        <div class="form-group" style="text-align: center;">
+                            <p style="color: #64748b; font-size: 0.9rem;">We'll respond within 24 hours</p>
+                        </div>
+                    </form>
+
+                    <!-- Quick Contact -->
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <p style="margin-bottom: 1rem;">Or contact us directly on:</p>
+                        <a href="https://wa.me/91XXXXXXXXXX" class="btn btn-whatsapp" style="margin-right: 1rem;">WhatsApp</a>
+                        <a href="tel:+91XXXXXXXXXX" class="btn btn-phone">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find Us Here</h2>
+                <p class="section-subtitle">Visit our institute for a free demo class</p>
+            </div>
+            
+            <div class="map-container">
+                <!-- Replace with your actual Google Maps embed URL -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.361923583143!2d77.3215!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjAiTiA3N8KwMTknMTcuNCJF!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>GSM POWER TECHNOLOGY</h4>
+                    <p>Professional mobile repairing and chip-level training institute. Turning unemployed youth into earning technicians since 2020.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>📍 [Your Address]</li>
+                        <li>📞 +91 XXXXXXXXXX</li>
+                        <li>📧 info@gsmpower.com</li>
+                        <li>💬 WhatsApp: +91 XXXXXXXXXX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 GSM POWER TECHNOLOGY. All rights reserved. | Designed for future technicians</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const course = document.getElementById('course').value;
+            const message = document.getElementById('message').value;
+            
+            // Format WhatsApp message
+            const whatsappMessage = `*New Enquiry from Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Course:* ${course || 'Not specified'}%0A*Message:* ${message}`;
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/91XXXXXXXXXX?text=${whatsappMessage}`, '_blank');
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
